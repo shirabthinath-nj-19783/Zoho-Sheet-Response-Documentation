@@ -147,4 +147,15 @@ const config = {
     }),
 };
 
+module.exports = {
+  // Your existing config...
+  title: 'Zoho Sheet Response Documentation',
+  url: 'https://shirabthinath-nj-19783.github.io',  // Replace with your GitHub username
+  baseUrl: '/Zoho-Sheet-Response-Documentation/',  // Replace with your GitHub repo name
+  projectName: 'Zoho-Sheet-Response-Documentation',
+  organizationName: 'Zohocorp-Pvt-Ltd',
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
+};
+
 export default config;

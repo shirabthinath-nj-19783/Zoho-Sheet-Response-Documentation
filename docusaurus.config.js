@@ -6,7 +6,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Zoho Sheet Response Documentation',
+  title: 'Zoho Sheet - Response Documentation',
   tagline: 'Response Structure',
   favicon: 'https://static.zohocdn.com/sheet/cdn_static/images/favicon.fd1a0ec9def8f9d6d9cb71c842ceb8da.ico',
 

@@ -1,0 +1,98 @@
+---
+sidebar_position: 14
+---
+
+import JsonViewer from '@site/src/components/JsonViewer';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# User Notification
+
+<Tabs>
+<TabItem value="patternFill" label="Pattern Fill">
+PatternFill action's info in User Notification.
+<JsonViewer data={{
+    "USER_NOTIFICATION": [
+    [
+        614,
+        [
+            [
+                199,
+                [],
+                0,
+                [
+                    [
+                        {
+                            "sc": 2,
+                            "er": 29,
+                            "ec": 2,
+                            "sr": 29
+                        }
+                    ]
+                ],
+                1,
+                [
+                    [
+                        {
+                            "sc": 2,
+                            "er": 29,
+                            "ec": 2,
+                            "sr": 28
+                        }
+                    ]
+                ],
+                [
+                    [
+                        {
+                            "sc": 2,
+                            "er": 29,
+                            "ec": 2,
+                            "sr": 29
+                        }
+                    ]
+                ],
+                true,
+                [
+                    [
+                        {
+                            "sc": 2,
+                            "er": 28,
+                            "ec": 2,
+                            "sr": 28
+                        }
+                    ]
+                ],
+                [
+                    [
+                        "0#"
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+}} />
+
+<br/>
+
+|Index | Description|
+|------|------------|
+|0 | ActionConstant|
+|1 | Notification JSONArray|
+
+<br/>
+#### Notification JSONArray
+|Index | Description|
+|------|------------|
+|0 | Action Id|
+|1 | Empty Cells JSONArray|
+|2 | Empty Cells Count |
+|3 | Changed Cells JSONArray|
+|4 | Changed Cells Count|
+|5 | Output Column JSONArray|
+|6 | Last Filled Cells JSONArray|
+|7 | Is Fill Completed |
+|8 | Source Cells JSONArray |
+|9 | SheetList JSONArray|
+</TabItem>
+</Tabs>

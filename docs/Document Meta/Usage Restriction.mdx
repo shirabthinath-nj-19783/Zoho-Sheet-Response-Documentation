@@ -1,0 +1,18 @@
+---
+sidebar_position: 12
+---
+
+import JsonViewer from '@site/src/components/JsonViewer';
+
+# Usage Restriction
+
+<JsonViewer data={{
+    "cins": 140
+}} />
+
+<br />
+
+:::note
+<p> This response will be sent in PostDocLoadAction's response. If the <b>CHARACTERS_IN_SPREADSHEET(cins)</b> exceeds the string limit, we have to show the <b>Error.String.Limit.Exceeded</b> errorMsg.</p>
+
+:::

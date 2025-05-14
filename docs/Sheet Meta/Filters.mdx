@@ -1,0 +1,159 @@
+---
+sidebar_position: 27
+---
+
+import JsonViewer from '@site/src/components/JsonViewer';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Filters
+
+<Tabs>
+<TabItem value="filter" label="Filter">
+    <JsonViewer data={{
+    "NEW_FILTER_DETAILS": [
+    {
+        "ASSOCIATED_SHEET_NAME": "0#",
+        "FILTER_RANGE": [
+            3,
+            4,
+            8,
+            6
+        ],
+        "FILTER_CRITERIA_APPLIED_COLS": [
+            4
+        ],
+        "TOGGLE_FILTER": false,
+        "ID": 0,
+        "FILTER_VIEW_ID": 100,
+        "DISPLAY_FILTER_BUTTONS" : true
+    }
+]
+}} />
+<br/>
+:::note
+- Filter range structure - [startRow, startCol, endRow, endCol]
+- The DISPLAY_FILTER_BUTTONS will be sent when the filterIcon state is affected.  
+- The FILTER_RANGE will be sent when the filter criteria is affected.  
+- The ID points to the table ID.
+:::
+
+  </TabItem>
+
+  <TabItem value="filterData" label="Filter Data" default>
+  FilterData response will not be sent in document meta/sheet meta.
+    <JsonViewer data={{
+    "FILTER_CELL_COLOR_LIST": [
+        {
+            "HEX_COLOR": "transparent"
+        }
+    ],
+    "FILTER_TEXT_COLOR_LIST": [
+        {
+            "HEX_COLOR": "#000000",
+            "THEME_COLOR": "TEXT1"
+        }
+    ],
+    "FILTER_LOGICAL_OPERATOR": 1,
+    "FILTER_DATA_TYPE": 1,
+    "FILTER_APPLIED_VALUES": [
+        {
+            "FILTER_OPERATOR": "top values",
+            "FILTER_SPECIAL_CONDITION": true,
+            "FILTER_SPECIAL_OPERATOR_TYPE": "top",
+            "FILTER_SPECIAL_OPERATOR_CATEGORY": "items",
+            "FILTER_VALUE": "3",
+            "FILTER_SPECIAL_OPERATOR_ID": 3
+        }
+    ],
+    "FILTER_SELECTED_INDEXES": [],
+    "FILTER_MAX_DATA": false,
+    "FILTER_MAX_CELL_COLOR": false,
+    "FILTER_MAX_TEXT_COLOR": false,
+    "APPLIED_FILTER_TYPE": 4,
+    "IS_PICKLIST": false,
+    "FILTER_CELL_DATA": [
+        "12",
+        "32",
+        "34",
+        "312",
+        "432"
+    ],
+    "PICKLIST_ID" : 1
+}} />
+<br/>
+:::note
+- In FILTER_APPLIED_VALUES - FILTER_SPECIAL_CONDITION, FILTER_SPECIAL_OPERATOR_TYPE, FILTER_SPECIAL_OPERATOR_CATEGORY, FILTER_SPECIAL_OPERATOR_ID will be sent when specialOperator applied.
+- IS_PICKLIST and PICKLIST_ID will be send when pickList filter applied.
+:::
+<br/>
+
+<div style={{ display: "flex", gap: "1rem" }}>
+<div style={{ flex: 1 }}>
+#### Special Operators  
+|Special Operator | Id | Type | Category |
+|-----------------|----|------|----------|
+|TOP_PERCENT| 1| top| percent |
+|BOTTOM_PERCENT| 2| bottom| percent |
+|TOP_VALUES| 3| top| items |
+|BOTTOM_VALUES| 4| bottom| items|
+
+</div>
+<div style={{ flex: 1 }}>
+#### Filter Logical Operators
+|Filter Logical Operator | Id |
+|------------------------|----|
+|OR | 0|
+|AND | 1|
+|NONE | 2|
+</div>
+</div>
+
+<br/>
+<div style={{ display: "flex", gap: "1rem" }}>
+<div style={{ flex: 1 }}>
+#### Filter Type
+|Filter Type | Id |
+|------------|----|
+|FILTER_BY_VALUE | 1|
+|FILTER_BY_CELL_COLOR | 2|
+|FILTER_BY_FONT_COLOR | 3|
+|CUSTOM_FILTER | 4|
+|FILTER_BY_PICKLIST | 5|
+</div>
+
+<div style={{ flex: 1 }}>
+#### Data Type  
+|Data Type | Id|
+|----------|---|
+|TEXT | 0|
+|NUMBER | 1|
+|DATE | 2|
+|DATETIME | 3|
+</div>
+</div>
+  </TabItem>
+
+  <TabItem value="filteredRows" label="Filtered Rows">
+    <JsonViewer data={{
+    "FILTERED_ROWS": [
+    [
+        5,
+        1,
+        "ro1"
+    ],
+    [
+        7,
+        1,
+        "ro1"
+    ]
+],
+    "FILTERED_ROW_COUNT" : 2
+}} />
+
+<br/>
+:::note
+Filtered Rows - JSONArray [RowIndex, RowsRepeated, RowStyle Name]
+:::
+  </TabItem>
+</Tabs>

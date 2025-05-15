@@ -24,8 +24,8 @@ jobs:
         run: npm run build
       
       - name: Configure Git author
-        run: git config --global user.email ""
-             git config --global user.name ""
+        run: git config --global user.email "shirabthinath.nj@zohocorp.com"
+             git config --global user.name "Shirabthinath N J"
              
       - name: Deploy to GitHub Pages
         env:

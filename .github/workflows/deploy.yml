@@ -22,7 +22,11 @@ jobs:
 
       - name: Build website
         run: npm run build
-
+      
+      - name: Configure Git author
+        run: git config --global user.email ""
+             git config --global user.name ""
+             
       - name: Deploy to GitHub Pages
         env:
           GIT_USER: shirabthinath-nj-19783

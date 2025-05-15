@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="filter" label="Filter">
     <BrowserOnly fallback={<div>Loading JSON...</div>}>
     {() => {
-        const JsonViewer = require('@site/src/components/jsonViewer').default;
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
         return <JsonViewer data={{
         "NEW_FILTER_DETAILS": [
         {
@@ -49,7 +49,7 @@ import TabItem from '@theme/TabItem';
   FilterData response will not be sent in document meta/sheet meta.
   <BrowserOnly fallback={<div>Loading JSON...</div>}>
     {() => {
-        const JsonViewer = require('@site/src/components/jsonViewer').default;
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
         return <JsonViewer data={{
         "FILTER_CELL_COLOR_LIST": [
             {
@@ -147,7 +147,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="filteredRows" label="Filtered Rows">
   <BrowserOnly fallback={<div>Loading JSON...</div>}>
     {() => {
-        const JsonViewer = require('@site/src/components/jsonViewer').default;
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
         return <JsonViewer data={{
         "FILTERED_ROWS": [
         [

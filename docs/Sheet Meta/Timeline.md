@@ -20,7 +20,7 @@ To Insert / Edit/ Move timeLine only the key will be changed in response.
 <br/>
 <BrowserOnly fallback={<div>Loading JSON...</div>}>
 {() => {
-    const JsonViewer = require('@site/src/components/jsonViewer').default;
+    const JsonViewer = require('@site/src/components/JsonViewer').default;
     return <JsonViewer data={{
         "PIVOT_TIMELINE": {
             "MODIFY": [
@@ -308,7 +308,7 @@ To Insert / Edit/ Move timeLine only the key will be changed in response.
   <TabItem value="delete" label="Delete" default>
   <BrowserOnly fallback={<div>Loading JSON...</div>}>
     {() => {
-        const JsonViewer = require('@site/src/components/jsonViewer').default;
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
         return <JsonViewer data={{
             "PIVOT_TIMELINE": {
             "DELETE": [

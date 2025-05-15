@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="add" label="Add" default>
 <BrowserOnly fallback={<div>Loading JSON...</div>}>
 {() => {
-    const JsonViewer = require('@site/src/components/jsonViewer').default;
+    const JsonViewer = require('@site/src/components/JsonViewer').default;
     return <JsonViewer data={{
         "TABLE": {
         "ADD": [

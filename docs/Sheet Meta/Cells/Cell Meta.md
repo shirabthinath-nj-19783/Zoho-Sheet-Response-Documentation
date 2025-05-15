@@ -8,7 +8,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 
 <BrowserOnly fallback={<div>Loading JSON...</div>}>
 {() => {
-    const JsonViewer = require('@site/src/components/jsonViewer').default;
+    const JsonViewer = require('@site/src/components/JsonViewer').default;
     return <JsonViewer data={{
         "CELL_META": {
         "META": {

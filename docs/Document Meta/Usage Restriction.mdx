@@ -2,13 +2,18 @@
 sidebar_position: 12
 ---
 
-import JsonViewer from '@site/src/components/JsonViewer';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 # Usage Restriction
 
-<JsonViewer data={{
-    "cins": 140
-}} />
+<BrowserOnly fallback={<div>Loading JSON...</div>}>
+{() => {
+    const JsonViewer = require('@site/src/components/jsonViewer').default;
+    return <JsonViewer data={{
+        "cins": 140
+    }} />
+    }}
+</BrowserOnly>
 
 <br />
 

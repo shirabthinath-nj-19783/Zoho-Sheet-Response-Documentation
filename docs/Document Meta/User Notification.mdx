@@ -2,7 +2,7 @@
 sidebar_position: 14
 ---
 
-import JsonViewer from '@site/src/components/JsonViewer';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -11,67 +11,72 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="patternFill" label="Pattern Fill">
 PatternFill action's info in User Notification.
-<JsonViewer data={{
-    "USER_NOTIFICATION": [
-    [
-        614,
+<BrowserOnly fallback={<div>Loading JSON...</div>}>
+{() => {
+    const JsonViewer = require('@site/src/components/jsonViewer').default;
+    return <JsonViewer data={{
+        "USER_NOTIFICATION": [
         [
+            614,
             [
-                199,
-                [],
-                0,
                 [
+                    199,
+                    [],
+                    0,
                     [
-                        {
-                            "sc": 2,
-                            "er": 29,
-                            "ec": 2,
-                            "sr": 29
-                        }
-                    ]
-                ],
-                1,
-                [
+                        [
+                            {
+                                "sc": 2,
+                                "er": 29,
+                                "ec": 2,
+                                "sr": 29
+                            }
+                        ]
+                    ],
+                    1,
                     [
-                        {
-                            "sc": 2,
-                            "er": 29,
-                            "ec": 2,
-                            "sr": 28
-                        }
-                    ]
-                ],
-                [
+                        [
+                            {
+                                "sc": 2,
+                                "er": 29,
+                                "ec": 2,
+                                "sr": 28
+                            }
+                        ]
+                    ],
                     [
-                        {
-                            "sc": 2,
-                            "er": 29,
-                            "ec": 2,
-                            "sr": 29
-                        }
-                    ]
-                ],
-                true,
-                [
+                        [
+                            {
+                                "sc": 2,
+                                "er": 29,
+                                "ec": 2,
+                                "sr": 29
+                            }
+                        ]
+                    ],
+                    true,
                     [
-                        {
-                            "sc": 2,
-                            "er": 28,
-                            "ec": 2,
-                            "sr": 28
-                        }
-                    ]
-                ],
-                [
+                        [
+                            {
+                                "sc": 2,
+                                "er": 28,
+                                "ec": 2,
+                                "sr": 28
+                            }
+                        ]
+                    ],
                     [
-                        "0#"
+                        [
+                            "0#"
+                        ]
                     ]
                 ]
             ]
         ]
     ]
-]
-}} />
+    }} />
+    }}
+</BrowserOnly>
 
 <br/>
 

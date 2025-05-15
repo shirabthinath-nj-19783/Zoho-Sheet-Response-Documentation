@@ -2,7 +2,7 @@
 sidebar_position: 26
 ---
 
-import JsonViewer from '@site/src/components/JsonViewer';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,261 +18,266 @@ To Insert / Edit/ Move timeLine only the key will be changed in response.
 |Move To New Sheet | ADD|
 |All | META|
 <br/>
-<JsonViewer data={{
-    "PIVOT_TIMELINE": {
-        "MODIFY": [
-            {
-                "autoHeight": true,
-                "srd": 17.8130081300813,
-                "tlid": "Timeline1",
-                "ssd": {
-                    "month": 12,
-                    "year": 2023,
-                    "day": 4
-                },
-                "sourceCol": "C",
-                "stid": "1tc8",
-                "ht": 142,
-                "wd": 350,
-                "sc": 7,
-                "sd": {
-                    "month": 1,
-                    "year": 2023,
-                    "day": 1
-                },
-                "slicerStyle": {
-                    "item_off_style": [
-                        {
-                            "THEME_COLOR": "TEXT1",
-                            "TINT": "0.9"
-                        },
-                        {},
-                        "",
-                        "",
-                        [
-                            {},
-                            {},
-                            {},
-                            {}
-                        ],
-                        {}
-                    ],
-                    "shadow": {
-                        "color": {
-                            "THEME_COLOR": "ACCENT1",
-                            "TINT": "0.8200000000000001"
-                        },
-                        "x": 7,
-                        "y": 7,
-                        "blur": 0,
-                        "opacity": 0,
-                        "inner": true,
-                        "spread": 6
+<BrowserOnly fallback={<div>Loading JSON...</div>}>
+{() => {
+    const JsonViewer = require('@site/src/components/jsonViewer').default;
+    return <JsonViewer data={{
+        "PIVOT_TIMELINE": {
+            "MODIFY": [
+                {
+                    "autoHeight": true,
+                    "srd": 17.8130081300813,
+                    "tlid": "Timeline1",
+                    "ssd": {
+                        "month": 12,
+                        "year": 2023,
+                        "day": 4
                     },
-                    "whole_table_style": [
-                        {
-                            "THEME_COLOR": "TEXT1",
-                            "TINT": "0.98"
+                    "sourceCol": "C",
+                    "stid": "1tc8",
+                    "ht": 142,
+                    "wd": 350,
+                    "sc": 7,
+                    "sd": {
+                        "month": 1,
+                        "year": 2023,
+                        "day": 1
+                    },
+                    "slicerStyle": {
+                        "item_off_style": [
+                            {
+                                "THEME_COLOR": "TEXT1",
+                                "TINT": "0.9"
+                            },
+                            {},
+                            "",
+                            "",
+                            [
+                                {},
+                                {},
+                                {},
+                                {}
+                            ],
+                            {}
+                        ],
+                        "shadow": {
+                            "color": {
+                                "THEME_COLOR": "ACCENT1",
+                                "TINT": "0.8200000000000001"
+                            },
+                            "x": 7,
+                            "y": 7,
+                            "blur": 0,
+                            "opacity": 0,
+                            "inner": true,
+                            "spread": 6
                         },
-                        {},
-                        "",
-                        "",
-                        [
+                        "whole_table_style": [
                             {
-                                "COLOR": {
-                                    "THEME_COLOR": "TEXT1",
-                                    "TINT": "0.9"
-                                },
-                                "STYLE": "1.0000px solid"
+                                "THEME_COLOR": "TEXT1",
+                                "TINT": "0.98"
                             },
-                            {
-                                "COLOR": {
-                                    "THEME_COLOR": "TEXT1",
-                                    "TINT": "0.9"
+                            {},
+                            "",
+                            "",
+                            [
+                                {
+                                    "COLOR": {
+                                        "THEME_COLOR": "TEXT1",
+                                        "TINT": "0.9"
+                                    },
+                                    "STYLE": "1.0000px solid"
                                 },
-                                "STYLE": "1.0000px solid"
-                            },
-                            {
-                                "COLOR": {
-                                    "THEME_COLOR": "TEXT1",
-                                    "TINT": "0.9"
+                                {
+                                    "COLOR": {
+                                        "THEME_COLOR": "TEXT1",
+                                        "TINT": "0.9"
+                                    },
+                                    "STYLE": "1.0000px solid"
                                 },
-                                "STYLE": "1.0000px solid"
-                            },
-                            {
-                                "COLOR": {
-                                    "THEME_COLOR": "TEXT1",
-                                    "TINT": "0.9"
+                                {
+                                    "COLOR": {
+                                        "THEME_COLOR": "TEXT1",
+                                        "TINT": "0.9"
+                                    },
+                                    "STYLE": "1.0000px solid"
                                 },
-                                "STYLE": "1.0000px solid"
+                                {
+                                    "COLOR": {
+                                        "THEME_COLOR": "TEXT1",
+                                        "TINT": "0.9"
+                                    },
+                                    "STYLE": "1.0000px solid"
+                                }
+                            ],
+                            {
+                                "bgStart": {
+                                    "THEME_COLOR": "ACCENT1",
+                                    "TINT": "0.9500000000000001"
+                                },
+                                "bgStop": {
+                                    "THEME_COLOR": "ACCENT1",
+                                    "TINT": "0.89"
+                                }
                             }
                         ],
-                        {
-                            "bgStart": {
-                                "THEME_COLOR": "ACCENT1",
-                                "TINT": "0.9500000000000001"
+                        "item_on_style": [
+                            {
+                                "THEME_COLOR": "ACCENT1"
                             },
-                            "bgStop": {
-                                "THEME_COLOR": "ACCENT1",
-                                "TINT": "0.89"
-                            }
-                        }
-                    ],
-                    "item_on_style": [
-                        {
-                            "THEME_COLOR": "ACCENT1"
-                        },
-                        {},
-                        "",
-                        "",
-                        [
                             {},
-                            {},
-                            {},
+                            "",
+                            "",
+                            [
+                                {},
+                                {},
+                                {},
+                                {}
+                            ],
                             {}
                         ],
-                        {}
-                    ],
-                    "period_label2_style": [
-                        {},
-                        {
-                            "THEME_COLOR": "TEXT1",
-                            "TINT": "0.38"
-                        },
-                        "",
-                        "",
-                        [
+                        "period_label2_style": [
                             {},
-                            {},
-                            {},
+                            {
+                                "THEME_COLOR": "TEXT1",
+                                "TINT": "0.38"
+                            },
+                            "",
+                            "",
+                            [
+                                {},
+                                {},
+                                {},
+                                {}
+                            ],
                             {}
                         ],
-                        {}
-                    ],
-                    "sliderStyle": "WAY_POINT",
-                    "header_style": [
-                        {},
-                        {
-                            "THEME_COLOR": "TEXT1"
-                        },
-                        "",
-                        "",
-                        [
+                        "sliderStyle": "WAY_POINT",
+                        "header_style": [
                             {},
-                            {},
-                            {},
+                            {
+                                "THEME_COLOR": "TEXT1"
+                            },
+                            "",
+                            "",
+                            [
+                                {},
+                                {},
+                                {},
+                                {}
+                            ],
                             {}
                         ],
-                        {}
-                    ],
-                    "time_level_style": [
-                        {
-                            "THEME_COLOR": "TEXT1",
-                            "TINT": "0.38"
-                        },
-                        {},
-                        "",
-                        "",
-                        [
+                        "time_level_style": [
+                            {
+                                "THEME_COLOR": "TEXT1",
+                                "TINT": "0.38"
+                            },
                             {},
-                            {},
-                            {},
+                            "",
+                            "",
+                            [
+                                {},
+                                {},
+                                {},
+                                {}
+                            ],
                             {}
                         ],
-                        {}
-                    ],
-                    "period_label1_style": [
-                        {},
-                        {
-                            "THEME_COLOR": "TEXT1",
-                            "TINT": "0.38"
-                        },
-                        "",
-                        "",
-                        [
+                        "period_label1_style": [
                             {},
-                            {},
-                            {},
+                            {
+                                "THEME_COLOR": "TEXT1",
+                                "TINT": "0.38"
+                            },
+                            "",
+                            "",
+                            [
+                                {},
+                                {},
+                                {},
+                                {}
+                            ],
                             {}
                         ],
-                        {}
-                    ],
-                    "slider_label_style": [
-                        {},
-                        {
-                            "HEX_COLOR": "z-automatic"
-                        },
-                        "",
-                        "",
-                        [
+                        "slider_label_style": [
                             {},
-                            {},
-                            {},
+                            {
+                                "HEX_COLOR": "z-automatic"
+                            },
+                            "",
+                            "",
+                            [
+                                {},
+                                {},
+                                {},
+                                {}
+                            ],
                             {}
                         ],
-                        {}
-                    ],
-                    "item_off_space_style": [
-                        {
-                            "THEME_COLOR": "TEXT1",
-                            "TINT": "0.85"
-                        },
-                        {},
-                        "",
-                        "",
-                        [
+                        "item_off_space_style": [
+                            {
+                                "THEME_COLOR": "TEXT1",
+                                "TINT": "0.85"
+                            },
                             {},
-                            {},
-                            {},
+                            "",
+                            "",
+                            [
+                                {},
+                                {},
+                                {},
+                                {}
+                            ],
                             {}
                         ],
-                        {}
-                    ],
-                    "item_on_space_style": [
-                        {
-                            "THEME_COLOR": "TEXT1",
-                            "TINT": "0.85"
-                        },
-                        {},
-                        "",
-                        "",
-                        [
+                        "item_on_space_style": [
+                            {
+                                "THEME_COLOR": "TEXT1",
+                                "TINT": "0.85"
+                            },
                             {},
-                            {},
-                            {},
+                            "",
+                            "",
+                            [
+                                {},
+                                {},
+                                {},
+                                {}
+                            ],
                             {}
-                        ],
-                        {}
-                    ]
-                },
-                "sed": {
-                    "month": 12,
-                    "year": 2023,
-                    "day": 5
-                },
-                "tlayout": 0,
-                "tlinename": "C",
-                "scd": 59.67479674796766,
-                "spt": "DAYS",
-                "scrollDate": {
-                    "month": 11,
-                    "year": 2023,
-                    "day": 25
-                },
-                "connPivots": [
-                    "PivotTable1"
-                ],
-                "fc": "btwn",
-                "sr": 6,
-                "ed": {
-                    "month": 12,
-                    "year": 2023,
-                    "day": 31
+                        ]
+                    },
+                    "sed": {
+                        "month": 12,
+                        "year": 2023,
+                        "day": 5
+                    },
+                    "tlayout": 0,
+                    "tlinename": "C",
+                    "scd": 59.67479674796766,
+                    "spt": "DAYS",
+                    "scrollDate": {
+                        "month": 11,
+                        "year": 2023,
+                        "day": 25
+                    },
+                    "connPivots": [
+                        "PivotTable1"
+                    ],
+                    "fc": "btwn",
+                    "sr": 6,
+                    "ed": {
+                        "month": 12,
+                        "year": 2023,
+                        "day": 31
+                    }
                 }
-            }
-        ]
-}
-}} />
+            ]
+    }
+    }} />
+    }}
+</BrowserOnly>
 <br/>
 
 | Key         | Description |
@@ -301,12 +306,17 @@ To Insert / Edit/ Move timeLine only the key will be changed in response.
   </TabItem>
 
   <TabItem value="delete" label="Delete" default>
-  <JsonViewer data={{
-    "PIVOT_TIMELINE": {
-    "DELETE": [
-        "Timeline1"
-    ]
-}
-}} />
+  <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/jsonViewer').default;
+        return <JsonViewer data={{
+            "PIVOT_TIMELINE": {
+            "DELETE": [
+                "Timeline1"
+            ]
+        }
+        }} />
+            }}
+    </BrowserOnly>
   </TabItem>
 </Tabs>

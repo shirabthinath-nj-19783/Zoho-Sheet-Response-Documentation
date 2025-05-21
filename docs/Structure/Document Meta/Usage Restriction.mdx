@@ -6,6 +6,13 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 
 # Usage Restriction
 
+<h3>Structure</h3>
+```json
+{
+    __characters_in_spreadsheet_key__ : __value__
+}
+```
+<h3>Response</h3>
 <BrowserOnly fallback={<div>Loading JSON...</div>}>
 {() => {
     const JsonViewer = require('@site/src/components/JsonViewer').default;

@@ -5,7 +5,56 @@ sidebar_position: 1
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
 # Cell Meta
+<h3>Structure</h3>
+```json
+{
+    "CELL_META": {
+        "META": {
+            "ROW_DATA": __row_data_array__,
+            "COLUMN_DATA": {
+                __row_key__: [
+                    [
+                        __col_index__,
+                        __cols_repeated__,
+                        [
+                            __actual_value__,
+                            __display_value__,
+                            __formula__,
+                            __style_name__,
+                            __cond_style_name__,
+                            __annotation__,
+                            __hyperlink__,
+                            __cell_type__,
+                            __pattern_color__,
+                            __is_content_valid__,
+                            __has_link__,
+                            __picklist__,
+                            __pattern_repeat_index__,
+                            __pattern_repeat_char__,
+                            __cell_image__,
+                            __is_type_mismatch__,
+                            __auto_array__,
+                            [
+                                __picklist_id__,
+                                [
+                                    __picklist_item_id__
+                                ]
+                            ],
+                            __rich_string__,
+                            __invisible_chars_object__,
+                            __picklist_multivalue_object,
+                            __importrange_sync_state__
+                        ]
+                    ]
+                ]
+            }
+        }
+    }
+}
+```
 
+
+<h3>Response</h3>
 <BrowserOnly fallback={<div>Loading JSON...</div>}>
 {() => {
     const JsonViewer = require('@site/src/components/JsonViewer').default;
@@ -97,9 +146,3 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
     }}
 </BrowserOnly>
 <br/>
-
-:::note
-- Cell data at 9th index moved to Cell Styles Definition. Refer this [Learn Page](https://learn.zoho.com/portal/zohocorp/knowledge/manual/response-versioning/article/v2-response) for more info.
-- In V2 - 17th index data should be used for PickList response instead of 11th index data.
-- Additionally, 20th and 21st index data added in cell Response. 20th index data will be for multiValue pickList. 21st data points to the state of ImportRangeSync.
-:::

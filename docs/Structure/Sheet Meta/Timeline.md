@@ -7,17 +7,82 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # TimeLine
+
+:::note
+- Operation type will be changed based on the operation. Possible operationTypes are : META, INSERT, MODIFY, MOVE, ADD, DELETE.
+- Slicer style - <b>shadow</b> and <b>sliderStyle</b>'s structure will be differ from other slicer styles.
+:::
 <Tabs>
-<TabItem value="meta" label="Insert / Edit / Move / All" default>
-To Insert / Edit/ Move timeLine only the key will be changed in response.
-|Operation | Key | 
-|----------|-----|   
-|Insert | INSERT|
-|Edit | MODIFY |
-|Move | MOVE |
-|Move To New Sheet | ADD|
-|All | META|
-<br/>
+
+<TabItem value="delete" label="Delete" default>
+  <h3>Structure</h3>
+    ```json
+    {
+        "PIVOT_TIMELINE": {
+            __operation_type__: [
+                __timeline_id__
+            ]
+        }
+    }
+    ```
+  <h3>Response</h3>
+  <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+            "PIVOT_TIMELINE": {
+            "DELETE": [
+                "Timeline1"
+            ]
+        }
+        }} />
+            }}
+    </BrowserOnly>
+  </TabItem>
+
+<TabItem value="meta" label="Others">
+<h3>Structure</h3>
+```json
+{
+    "PIVOT_TIMELINE": {
+        __operation_type__: [
+            {
+                "autoHeight": __is_auto_height_enabled__,
+                "srd": __start_row_diff__,
+                "tlid": __timeline_id__,
+                "ssd": __selected_start_date_object__,
+                "sourceCol": __source_col__,
+                "stid": __slicer_theme_id__,
+                "ht": __height__,
+                "wd": __width__,
+                "sc": __start_col__,
+                "sd": __start_date__,
+                "slicerStyle": {
+                    __slicer_style_name__: [
+                        __background_color_object__,
+                        __text_color_object__,
+                        __font_size__,
+                        __font_name__,
+                        __border_array__,
+                        __gradient_object__
+                    ]
+                },
+                "sed": __selected_end_date__,
+                "tlayout": __timeline_layout__,
+                "tlinename": __timeline_name__,
+                "scd": __start_col_diff__,
+                "spt": __selected_period_type__,
+                "scrollDate": __current_scrollview's_start_date__,
+                "connPivots": __connected_pivot_array__,
+                "fc": __filter_criteria_applied__,
+                "sr": __start_row__,
+                "ed": __end_date__
+            }
+        ]
+    }
+}
+```
+<h3>Response</h3>
 <BrowserOnly fallback={<div>Loading JSON...</div>}>
 {() => {
     const JsonViewer = require('@site/src/components/JsonViewer').default;
@@ -280,43 +345,8 @@ To Insert / Edit/ Move timeLine only the key will be changed in response.
 </BrowserOnly>
 <br/>
 
-| Key         | Description |
-|-------------|-------|
-| <b>autoHeight</b>     | AutoHeight for TimeLine  |
-| <b>srd</b>    | Start Row Diff - No of pixels from startRow   |
-| <b>tlid</b>  | TimeLine Id     |
-| <b>ssd</b>   |  Selected Start Date - JSONObject |
-|<b>sourceCol</b> | Source Column from Pivot|
-|<b>stid</b> | Slicer Theme Id - in the format of accent + "tc" + (1-8)|
-|<b>ht</b>  | Height of the timeLine|
-|<b>wd</b>  | Width of the timeLine|
-|<b>sc</b>  | StartCol of the timeLine|
-|<b>sd</b>  | Start Date of the timeLine - similar to Selected Start Date|
-|<b>slicerStyle</b>  | styles for header, slider, period label etc. - JSONObject <br/> Each style will be as key-value pair.<br/> Key : styleName, Value : JSONArray [6 elements] <br/> &emsp; 0 - Background Color - JSONObject - two possible key structures <br/>&emsp;&emsp; 1. HEX_COLOR <br/>&emsp;&emsp; 2. THEME_COLOR AND TINT(optional) <br/>&emsp;&emsp; <b>Note :</b> Only one of the formats will be used <br/>&emsp; 1 - Text Color - similar to Background Color <br/> &emsp; 2 - Font Size <br/>&emsp; 3 - Font Name <br/>&emsp; 4 - Border Info <br/>&emsp; 5 - Gradient Info <br/><b> Note :</b> Shadow's style structure will be differ from other styles.|
-|<b>sed</b>  | Selected End Date - JSONObject|
-|<b>tlayout</b>  | TimeLine Layout Index|
-|<b>tlinename</b> | TimeLine Name| 
-|<b>scd</b>  | Start Col Diff - No of pixels from startCol|
-|<b>spt</b>  | Selected Period Type like Days, Years|
-|<b>scrollDate</b>  | Current scrollView's startDate|
-|<b>connPivots</b>  | Connected pivots name|
-|<b>fc</b>  | Filter criteria applied to pivot|
-|<b>sr</b>  | StartRow of the timeLine |
-|<b>ed</b>  | End Date - JSONObject|
-  </TabItem>
-
-  <TabItem value="delete" label="Delete" default>
-  <BrowserOnly fallback={<div>Loading JSON...</div>}>
-    {() => {
-        const JsonViewer = require('@site/src/components/JsonViewer').default;
-        return <JsonViewer data={{
-            "PIVOT_TIMELINE": {
-            "DELETE": [
-                "Timeline1"
-            ]
-        }
-        }} />
-            }}
-    </BrowserOnly>
+|Object | Description |
+|------|-------------|
+|Background Color, <br/> Text Color| 2 possible JSONObject's key structures, <br/> &emsp;&emsp;1. HEX_COLOR <br/> &emsp;&emsp;2. THEME_COLOR and TINT(tint is optional) <br/>&emsp;&emsp; <b>Note :</b> Only one of the formats will be used|
   </TabItem>
 </Tabs>

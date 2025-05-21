@@ -8,9 +8,38 @@ import TabItem from '@theme/TabItem';
 
 # User Notification
 
+<h3>Structure</h3>
+```json
+{
+    "USER_NOTIFICATION": [
+        [
+            __action_constant__,
+            __notification_array__
+        ]
+    ]
+}
+```
+
 <Tabs>
-<TabItem value="patternFill" label="Pattern Fill">
-PatternFill action's info in User Notification.
+<TabItem value="patternFill" label="Pattern Fill" default>
+<h3>Notification Array Structure</h3>
+```json
+[
+    [
+        __action_id__,
+        __empty_cells_array__,
+        __empty_cells_count__,
+        __changed_cells_array__,
+        __changed_cells_count__,
+        __output_column_array__,
+        __last_filled_cells_array__,
+        __is_fill_completed_boolean__,
+        __source_cells_array__,
+        __sheetlist_array__
+    ]
+]
+```
+<h3>Response</h3>
 <BrowserOnly fallback={<div>Loading JSON...</div>}>
 {() => {
     const JsonViewer = require('@site/src/components/JsonViewer').default;
@@ -79,25 +108,5 @@ PatternFill action's info in User Notification.
 </BrowserOnly>
 
 <br/>
-
-|Index | Description|
-|------|------------|
-|0 | ActionConstant|
-|1 | Notification JSONArray|
-
-<br/>
-#### Notification JSONArray
-|Index | Description|
-|------|------------|
-|0 | Action Id|
-|1 | Empty Cells JSONArray|
-|2 | Empty Cells Count |
-|3 | Changed Cells JSONArray|
-|4 | Changed Cells Count|
-|5 | Output Column JSONArray|
-|6 | Last Filled Cells JSONArray|
-|7 | Is Fill Completed |
-|8 | Source Cells JSONArray |
-|9 | SheetList JSONArray|
 </TabItem>
 </Tabs>

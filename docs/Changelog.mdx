@@ -1,0 +1,623 @@
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Changelog
+
+<Tabs>
+<TabItem value="documentMeta" label="Documen Meta">
+
+<h2>Cell Style Definition</h2>
+
+- Previously, the Number Format Response (Pattern Response) was sent in CELL_META -> META -> COLUMN_DATA -> Array of CELL_DATA at 9th index.
+- It has been now moved to the 15th index in Cell Style Definition.
+- To reduce sending the same pattern response for each cell, we switched this to cellStyleDefinition.
+<div style={{ display: 'flex', gap: '20px'}}>
+  <div style={{ flex: 1}}>
+    <center><b>Version 1</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+      {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+        "CELLSTYLES_DEFINITION": {
+        "__operation_type__": {
+            "ce3": [
+                "#85c1e9",
+                "#763e8d",
+                18,
+                "Lato",
+                "bold",
+                "italic",
+                "solid",
+                "solid",
+                "wrap",
+                "start",
+                "middle",
+                [
+                    "0.0138in solid #000000",
+                    "0.0138in solid #000000",
+                    "0.0138in solid #000000",
+                    "0.0138in solid #000000"
+                ],
+                "45",
+                "2",
+                "Lato"
+            ]
+        }
+    }
+    }} />
+      }}
+    </BrowserOnly>
+  </div>
+  <div style={{ flex: 1 }}>
+    <center><b>Version 2</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+      {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+        "CELLSTYLES_DEFINITION": {
+        "__operation_type__": {
+            "ce3": [
+                "#85c1e9",
+                "#763e8d",
+                18,
+                "Lato",
+                "bold",
+                "italic",
+                "solid",
+                "solid",
+                "wrap",
+                "start",
+                "middle",
+                [
+                    "0.0138in solid #000000",
+                    "0.0138in solid #000000",
+                    "0.0138in solid #000000",
+                    "0.0138in solid #000000"
+                ],
+                "45",
+                "2",
+                "Lato",
+                {
+                    "FORMATTYPE": "ACCOUNTING",
+                    "FORMATSTRING": "%5B%3E0%5D_%28%5B%24en-US%5D*%20%23%2C%23%230.00_%29%3B%5B%3C0%5D_%28%5B%24en-US%5D*%20%28%23%2C%23%230.00%29%3B_%28%5B%24en-US%5D*%20%22-%22%23%3F%3F_%29%3B_%28%40_%29",
+                    "DECIMALS": 2,
+                    "LEADINGZEROES": 1,
+                    "ISGROUPINGUSED": true,
+                    "ISCUSTOM": false
+                }
+            ]
+        }
+    }
+    }} />
+      }}
+    </BrowserOnly>
+  </div>
+</div>
+<br/>
+
+<h2>Usage Restriction</h2>
+<h4>Characters In SpreadSheet :</h4>
+- We have newly added usage restriction response in Document Meta.
+- No of characters in spreadsheet(cins) will be sent in postDoc response.
+- We have to show the error message banner, if the spreadsheet exceeds the characters limit.
+- Check [here](../docs/Structure/Document%20Meta/Usage%20Restriction.mdx) for usage restriction structure.
+<br/>
+
+
+<h2>Tables</h2>
+
+- Additionally, We have added IS_FILTER_TABLE key to differentiate the table's response from normal table and sheetFilter table's response.
+- If the table response is for sheetFilter table, COLUMN_HEADERS, PROPERTIES, STYLE infos will not be available in the response.
+<div style={{ display: 'flex', gap: '20px'}}>
+  <div style={{ flex: 1}}>
+    <center><b>Version 1</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+            "TABLE": {
+            "__operation_type__": [
+                {
+                    "COLUMN_HEADERS" : [
+                        "A",
+                        "B"
+                    ],
+                    "RESIZE": false,
+                    "RANGES": [
+                        "0#",
+                        3,
+                        4,
+                        8,
+                        6
+                    ],
+                    "ID": 0,
+                    "PROPERTIES" : [
+                        1,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0
+                    ],
+                    "STYLE" : "Table1 Style",
+                    "NAME": "Table1"
+                }
+            ]
+        }
+        }} />
+    }}
+    </BrowserOnly>
+  </div>
+  <div style={{ flex: 1 }}>
+    <center><b>Version 2</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+            "TABLE": {
+            "__operation_type__": [
+                {
+                    "COLUMN_HEADERS" : [
+                        "A",
+                        "B"
+                    ],
+                    "RESIZE": false,
+                    "RANGES": [
+                        "0#",
+                        3,
+                        4,
+                        8,
+                        6
+                    ],
+                    "ID": 0,
+                    "PROPERTIES" : [
+                        1,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0
+                    ],
+                    "STYLE" : "Table1 Style",
+                    "NAME": "Table1",
+                    "IS_FILTER_TABLE": true
+                }
+            ]
+        }
+        }} />
+        }}
+    </BrowserOnly>
+  </div>
+</div>
+<br/>
+
+<h2>Spreadsheet Settings</h2>
+
+- Spreadsheet Settings response key <b>DOC_SETTINGS</b> changed as <b>SPREADSHEET_SETTINGS_NEW</b>.
+- Check [here](../docs/Structure/Document%20Meta/Spreadsheet%20Settings.md) for the new structure.
+<br/>
+
+<h2>User Notification</h2>
+- We have newly added <b>PatternFill</b> notification response in User Notification array.
+- Check [here](../docs/Structure/Document%20Meta/User%20Notification.mdx) for the patternFill notification structure.
+<br/>
+
+<h2>Sheet Operations</h2>
+- Previously, if sheet tab color is <b>"transparent"</b>, we will sent it as <b>""</b>(Empty string). It has been now sent as <b>"transparent"</b> instead of empty string.
+<div style={{ display: 'flex', gap: '20px'}}>
+  <div style={{ flex: 1}}>
+    <center><b>Version 1</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+        "WORKSHEETS": {
+            "INSERT": [
+                [
+                    "0#",
+                    "Sheet1",
+                    0,
+                    "",
+                    false
+                ]
+            ]
+        }
+    }} />
+    }}
+ </BrowserOnly>
+  </div>
+  <div style={{ flex: 1 }}>
+    <center><b>Version 2</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+        "WORKSHEETS": {
+            "INSERT": [
+                [
+                    "0#",
+                    "Sheet1",
+                    0,
+                    "transparent",
+                    false
+                ]
+            ]
+        }
+    }} />
+    }}
+ </BrowserOnly>
+  </div>
+</div>
+</TabItem>
+
+<TabItem value="sheetMeta" label="Sheet Meta">
+
+<h2>Cell Meta</h2>
+- Previously, the number format response (Pattern Response) was sent in CELL_DATA at 9th index. It has been now moved to CELL_STYLE_DEFINITION response.
+- As a result, all subsequent indexes in the CELL_DATA response have been shifted forward by one position.
+- The displayValue will no longer be sent for Picklist, Boolean, and Error values because their actual value and displayValue are always identical.
+- For Float, Percentage, Currency, Fraction, and Scientific Formats the formulaString will be sent only if the decimalSeparator is not a dot (.). This is because, when the decimalSeparator is a dot, the actual value and formulaString are identical.
+- For Date and DateTime Formats, the formulaString will only be sent if the DateFormat is not MDY. This is because the actual value is already in the MDY format.
+- For String type, the formulaString will only be sent if the value is prefixed with an apostrophe ('). This is because only in such cases will the actual value and formulaString differ.
+- 17th index picklist response should be used instead of 11th index picklist response.
+
+<div style={{ display: 'flex', gap: '20px'}}>
+  <div style={{ flex: 1}}>
+    <center><b>Version 1</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+            "CELL_META": {
+            "META": {
+                "ROW_DATA": [
+                    [
+                        28,
+                        1,
+                        "0"
+                    ]
+                ],
+                "COLUMN_DATA": {
+                    "0": [
+                        [
+                            4,
+                            1,
+                            [
+                                "'Yet to start\nBlocked'",
+                                "''",
+                                "'=D26'",
+                                "",
+                                [],
+                                [],
+                                "",
+                                "STRING",
+                                "",
+                                {},
+                                1,
+                                0,
+                                [],
+                                -1,
+                                "",
+                                [],
+                                0,
+                                [],
+                                [
+                                    0,
+                                    [
+                                        0,
+                                        1
+                                    ]
+                                ],
+                                [],
+                                {},
+                                {
+                                    "PL_LIST": [
+                                        {
+                                            "COLOR": {
+                                                "hexColor": "#563b30"
+                                            },
+                                            "BG_COLOR": {
+                                                "hexColor": "#e8dbd6"
+                                            },
+                                            "DISPLAY_STRING": "Yet to start"
+                                        },
+                                        {
+                                            "COLOR": {
+                                                "hexColor": "#606620"
+                                            },
+                                            "BG_COLOR": {
+                                                "hexColor": "#edf0cf"
+                                            },
+                                            "DISPLAY_STRING": "Blocked"
+                                        }
+                                    ],
+                                    "STACK_DIRECTION": "vrt"
+                                },
+                                0
+                            ]
+                        ]
+                    ]
+                }
+            }
+        }
+        }} />
+        }}
+    </BrowserOnly>
+  </div>
+  <div style={{ flex: 1 }}>
+    <center><b>Version 2</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+            "CELL_META": {
+            "META": {
+                "ROW_DATA": [
+                    [
+                        28,
+                        1,
+                        "0"
+                    ]
+                ],
+                "COLUMN_DATA": {
+                    "0": [
+                        [
+                            4,
+                            1,
+                            [
+                                "'Yet to start\nBlocked'",
+                                "''",
+                                "'=D26'",
+                                "",
+                                [],
+                                [],
+                                "",
+                                "STRING",
+                                "",
+                                1,
+                                0,
+                                [],
+                                -1,
+                                "",
+                                [],
+                                0,
+                                [],
+                                [
+                                    0,
+                                    [
+                                        0,
+                                        1
+                                    ]
+                                ],
+                                [],
+                                {},
+                                {
+                                    "PL_LIST": [
+                                        {
+                                            "COLOR": {
+                                                "hexColor": "#563b30"
+                                            },
+                                            "BG_COLOR": {
+                                                "hexColor": "#e8dbd6"
+                                            },
+                                            "DISPLAY_STRING": "Yet to start"
+                                        },
+                                        {
+                                            "COLOR": {
+                                                "hexColor": "#606620"
+                                            },
+                                            "BG_COLOR": {
+                                                "hexColor": "#edf0cf"
+                                            },
+                                            "DISPLAY_STRING": "Blocked"
+                                        }
+                                    ],
+                                    "STACK_DIRECTION": "vrt"
+                                },
+                                0
+                            ]
+                        ]
+                    ]
+                }
+            }
+        }
+        }} />
+        }}
+    </BrowserOnly>
+  </div>
+</div>
+<br/>
+
+<h2>Filters</h2>
+- Filter response key <b>FILTER_DETAILS</b> changed as <b>NEW_FILTER_DETAILS</b>.
+- Previously, filteredRows response sent in Filter response. It has been now moved to Sheet Meta.
+- Additionally, we have added ID, FILTER_VIEW_ID, DISPLAY_FILTER_BUTTONS keys to the filter response.
+- In FilterData response, Instead of using the string based keys we have used the CommandConstant keys. Check [here](../docs/Structure/Sheet%20Meta/Filters.mdx) for the new filterData keys and structure. 
+- Additionally, we have sent Picklist details in FilterData response to support picklist filter.
+<div style={{ display: 'flex', gap: '20px'}}>
+  <div style={{ flex: 1}}>
+    <center><b>Version 1</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+        "SHEET_META" : {
+            "FILTER_DETAILS": [
+            {
+                "ASSOCIATED_SHEET_NAME": "0#",
+                "FILTER_RANGE": [
+                    3,
+                    4,
+                    8,
+                    6
+                ],
+                "FILTER_CRITERIA_APPLIED_COLS": [
+                    4
+                ],
+                "TOGGLE_FILTER": false,
+                "FILTERED_ROWS": [
+                    [
+                        5,
+                        1,
+                        "ro1"
+                    ]
+                ]
+            }
+            ]
+        }
+        }} />
+        }}
+    </BrowserOnly>
+  </div>
+  <div style={{ flex: 1 }}>
+    <center><b>Version 2</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+        "SHEET_META": {
+            "NEW_FILTER_DETAILS": [
+            {
+                "ASSOCIATED_SHEET_NAME": "0#",
+                "FILTER_RANGE": [
+                    3,
+                    4,
+                    8,
+                    6
+                ],
+                "FILTER_CRITERIA_APPLIED_COLS": [
+                    4
+                ],
+                "TOGGLE_FILTER": false,
+                "ID": 0,
+                "FILTER_VIEW_ID": 100,
+                "DISPLAY_FILTER_BUTTONS" : true
+            }
+            ],
+            "FILTERED_ROWS": [
+                [
+                    5,
+                    1,
+                    "ro1"
+                ]
+            ],
+            "FILTERED_ROW_COUNT" : 2
+        }
+        }} />
+        }}
+    </BrowserOnly>
+  </div>
+</div>
+<br/>
+
+<h2>Row Headers</h2>
+- Additionally, we have sent maximum height colIndex along with rowIndex, rowsRepeated, rowStyleName as a 4th value in RowHeadersArray.
+<div style={{ display: 'flex', gap: '20px'}}>
+  <div style={{ flex: 1}}>
+    <center><b>Version 1</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+            "ROW_HEADERS": {
+        "META": [
+            [
+                0,
+                1,
+                "ro2"
+            ]
+        ]
+    }
+    }} />
+    }}
+</BrowserOnly>
+  </div>
+  <div style={{ flex: 1 }}>
+    <center><b>Version 2</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+            "ROW_HEADERS": {
+        "META": [
+            [
+                0,
+                1,
+                "ro2",
+                -1
+            ]
+        ]
+    }
+    }} />
+    }}
+</BrowserOnly>
+  </div>
+</div>
+<br/>
+
+<h2>Column Headers</h2>
+- Additionally, we have sent maximum width rowIndex along with colIndex, colsRepeated, colStyleName as a 4th value in colHeadersArray.
+<div style={{ display: 'flex', gap: '20px'}}>
+  <div style={{ flex: 1}}>
+    <center><b>Version 1</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+            "COLUMN_HEADERS": {
+        "META": [
+            [
+                0,
+                1,
+                "co1"
+            ]
+        ]
+    }
+    }} />
+    }}
+</BrowserOnly>
+  </div>
+  <div style={{ flex: 1 }}>
+    <center><b>Version 2</b></center>
+    <br/>
+    <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+            "COLUMN_HEADERS": {
+        "META": [
+            [
+                0,
+                1,
+                "co1",
+                -1
+            ]
+        ]
+    }
+    }} />
+    }}
+</BrowserOnly>
+  </div>
+</div>
+<br/>
+
+<h2> Timeline</h2>
+- We have newly added timeline response in Sheet Meta.
+- Check [here](../docs/Structure/Sheet%20Meta/Timeline.md) for the timeline structure.
+</TabItem>
+
+</Tabs>

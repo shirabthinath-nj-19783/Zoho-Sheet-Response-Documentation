@@ -9,7 +9,29 @@ import TabItem from '@theme/TabItem';
 # Filters
 
 <Tabs>
-<TabItem value="filter" label="Filter">
+<TabItem value="filter" label="Filter" default>
+    <h3>Structure</h3>
+    ```json
+    {
+        "NEW_FILTER_DETAILS": [
+            {
+                "ASSOCIATED_SHEET_NAME": __associated_sheet_name__,
+                "FILTER_RANGE": [
+                    __start_row__,
+                    __start_col__,
+                    __end_row__,
+                    __end_col__
+                ],
+                "FILTER_CRITERIA_APPLIED_COLS": __filter_applied_col_index_array__,
+                "TOGGLE_FILTER": __toggle_filter_boolean__,
+                "ID": __table_id__,
+                "FILTER_VIEW_ID": __filter_id__,
+                "DISPLAY_FILTER_BUTTONS" : __is_display_filter_buttons_boolean__
+            }
+        ]
+    }
+    ```
+    <h3>Response</h3>
     <BrowserOnly fallback={<div>Loading JSON...</div>}>
     {() => {
         const JsonViewer = require('@site/src/components/JsonViewer').default;
@@ -36,17 +58,40 @@ import TabItem from '@theme/TabItem';
         }}
     </BrowserOnly>
 <br/>
-:::note
-- Filter range structure - [startRow, startCol, endRow, endCol]
-- The DISPLAY_FILTER_BUTTONS will be sent when the filterIcon state is affected.  
-- The FILTER_RANGE will be sent when the filter criteria is affected.  
-- The ID points to the table ID.
-:::
 
   </TabItem>
 
-  <TabItem value="filterData" label="Filter Data" default>
-  FilterData response will not be sent in document meta/sheet meta.
+  <TabItem value="filterData" label="Filter Data">
+  - FilterData response will not be sent in document meta/sheet meta.
+
+  <h3>Structure</h3>
+    ```json
+    {
+        "FILTER_CELL_COLOR_LIST": __cell_color_list__,
+        "FILTER_TEXT_COLOR_LIST": __text_color_list__,
+        "FILTER_LOGICAL_OPERATOR": __logical_operator__,
+        "FILTER_DATA_TYPE": __filter_data_type__,
+        "FILTER_APPLIED_VALUES": [
+            {
+                "FILTER_OPERATOR": __filter_operator__,
+                "FILTER_SPECIAL_CONDITION": __is_special_condition__,
+                "FILTER_SPECIAL_OPERATOR_TYPE": __special_operator_type__,
+                "FILTER_SPECIAL_OPERATOR_CATEGORY": __special_operator_category__,
+                "FILTER_VALUE": __filter_value__,
+                "FILTER_SPECIAL_OPERATOR_ID": __special_operator_id__
+            }
+        ],
+        "FILTER_SELECTED_INDEXES": __selected_index_array__,
+        "FILTER_MAX_DATA": __is_max_data_reached__,
+        "FILTER_MAX_CELL_COLOR": __is_max_cell_color_reached__,
+        "FILTER_MAX_TEXT_COLOR": __is_max_text_color_reached__,
+        "APPLIED_FILTER_TYPE": __filter_type__,
+        "IS_PICKLIST": __is_picklist__,
+        "FILTER_CELL_DATA": __cell_data_array__,
+        "PICKLIST_ID" : __picklist_id__
+    }
+    ```
+  <h3>Response</h3>
   <BrowserOnly fallback={<div>Loading JSON...</div>}>
     {() => {
         const JsonViewer = require('@site/src/components/JsonViewer').default;
@@ -145,6 +190,21 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 
   <TabItem value="filteredRows" label="Filtered Rows">
+
+  <h3>Structure</h3>
+  ```json
+{
+    "FILTERED_ROWS": [
+        [
+            __row_index__,
+            __rows_repeated__,
+            __row_style_name__
+        ]
+    ],
+    "FILTERED_ROW_COUNT" : __filtered_row_count__
+}
+  ```
+  <h3>Response</h3>
   <BrowserOnly fallback={<div>Loading JSON...</div>}>
     {() => {
         const JsonViewer = require('@site/src/components/JsonViewer').default;
@@ -166,9 +226,5 @@ import TabItem from '@theme/TabItem';
         }}
     </BrowserOnly>
 
-<br/>
-:::note
-Filtered Rows - JSONArray [RowIndex, RowsRepeated, RowStyle Name]
-:::
   </TabItem>
 </Tabs>

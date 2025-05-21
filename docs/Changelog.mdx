@@ -10,8 +10,8 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="documentMeta" label="Document Meta">
-
-<h2>Cell Style Definition</h2>
+<br/>
+<h3>Cell Style Definition</h3>
 
 - In earlier versions, the Number Format Response (Pattern Response) was located at the **9th** index of each **CELL_DATA** array under **CELL_META -> META -> COLUMN_DATA**. It has now been relocated to the **15th** index within the cell style definition.
 - To avoid duplicating the same pattern response for every cell, it has been centralized under cell style definition.
@@ -101,14 +101,14 @@ import TabItem from '@theme/TabItem';
 </div>
 <br/>
 
-<h2>Usage Restriction</h2>
+<h3>Usage Restriction</h3>
 
 <h4>Characters In spreadsheet :</h4>
 - We have introduced a usage restriction response in the Document Meta.
 - Check [here](../docs/Structure/Document%20Meta/Usage%20Restriction.mdx) for usage restriction structure.
 <br/>
 
-<h2>Tables</h2>
+<h3>Tables</h3>
 
 - Additionally, we have added the **IS_FILTER_TABLE** key to differentiate between a normal table response and a sheet filter table response.
 - If the table response is for a sheet filter table, the COLUMN_HEADERS, PROPERTIES, and STYLE information will not be included in the response.
@@ -197,18 +197,18 @@ import TabItem from '@theme/TabItem';
 </div>
 <br/>
 
-<h2>Spreadsheet Settings</h2>
+<h3>Spreadsheet Settings</h3>
 
 - In the Spreadsheet Settings response, the key <b>DOC_SETTINGS</b> has been changed to <b>SPREADSHEET_SETTINGS_NEW</b>.
 - Check [here](../docs/Structure/Document%20Meta/Spreadsheet%20Settings.md) for the new structure.
 <br/>
 
-<h2>User Notification</h2>
+<h3>User Notification</h3>
 - We have newly added <b>PatternFill</b> notification response to the User Notification array.
 - Check [here](../docs/Structure/Document%20Meta/User%20Notification.mdx) for the patternFill notification structure.
 <br/>
 
-<h2>Sheet Operations</h2>
+<h3>Sheet Operations</h3>
 - Previously, if the sheet tab color was set to ‘transparent’, it was represented as an empty string (""). It is now explicitly sent as 'transparent' instead of an empty string.
 <div style={{ display: 'flex', gap: '20px'}}>
   <div style={{ flex: 1}}>
@@ -259,8 +259,8 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 
 <TabItem value="sheetMeta" label="Sheet Meta">
-
-<h2>Cell Meta</h2>
+<br/>
+<h3>Cell Meta</h3>
 - Previously, the Number Format Response (Pattern Response) was sent at the 9th index within CELL_DATA. It has now been moved to the CELL_STYLE_DEFINITION response.
 - As a result, all subsequent indexes in the CELL_DATA response have been shifted forward by one position.
 - The displayValue will no longer be sent for Picklist, Boolean, and Error types, as their actual value and display value are always identical.
@@ -437,7 +437,7 @@ import TabItem from '@theme/TabItem';
 </div>
 <br/>
 
-<h2>Filters</h2>
+<h3>Filters</h3>
 - The filter response key **FILTER_DETAILS** has been renamed to **NEW_FILTER_DETAILS**.
 - Previously, the **filtered rows** response was included within the filter response. It has now been moved to the Sheet Meta section.
 - The filter response now also includes the following additional keys: **ID, FILTER_VIEW_ID, and DISPLAY_FILTER_BUTTONS**.
@@ -521,7 +521,7 @@ import TabItem from '@theme/TabItem';
 </div>
 <br/>
 
-<h2>Row Headers</h2>
+<h3>Row Headers</h3>
 - We have added the **maximum height column index** as the fourth value in the row headers array, along with rowIndex, rowsRepeated, and rowStyleName.
 - The maximum height column index is the index of the column that is responsible for the maximum height of the row.
 <div style={{ display: 'flex', gap: '20px'}}>
@@ -569,7 +569,7 @@ import TabItem from '@theme/TabItem';
 </div>
 <br/>
 
-<h2>Column Headers</h2>
+<h3>Column Headers</h3>
 - We have included the maximum width row index as the fourth value in the column headers array, along with colIndex, colsRepeated, and colStyleName.
 - The maximum width row index is the index of the row that is responsible for the maximum width of the column.
 <div style={{ display: 'flex', gap: '20px'}}>
@@ -617,7 +617,7 @@ import TabItem from '@theme/TabItem';
 </div>
 <br/>
 
-<h2> Timeline</h2>
+<h3> Timeline</h3>
 - We have newly added the timeline response to the Sheet Meta.
 - Check [here](../docs/Structure/Sheet%20Meta/Timeline.md) for the timeline structure.
 </TabItem>

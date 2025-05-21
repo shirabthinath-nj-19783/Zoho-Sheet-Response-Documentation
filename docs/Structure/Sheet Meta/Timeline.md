@@ -1,5 +1,6 @@
 ---
 sidebar_position: 26
+description: ""
 ---
 
 import BrowserOnly from '@docusaurus/BrowserOnly';
@@ -9,8 +10,8 @@ import TabItem from '@theme/TabItem';
 # TimeLine
 
 :::note
-- Operation type will be changed based on the operation. Possible operationTypes are : META, INSERT, MODIFY, MOVE, ADD, DELETE.
-- Slicer style - <b>shadow</b> and <b>sliderStyle</b>'s structure will be differ from other slicer styles.
+- The operation type will change based on the operation being performed. Possible operation types are: META, INSERT, MODIFY, MOVE, ADD and DELETE.
+- The structure of the slicer style — specifically for <b>shadow</b> and <b>sliderStyle</b> — differs from other slicer styles.
 :::
 <Tabs>
 
@@ -347,6 +348,6 @@ import TabItem from '@theme/TabItem';
 
 |Object | Description |
 |------|-------------|
-|Background Color, <br/> Text Color| 2 possible JSONObject's key structures, <br/> &emsp;&emsp;1. HEX_COLOR <br/> &emsp;&emsp;2. THEME_COLOR and TINT(tint is optional) <br/>&emsp;&emsp; <b>Note :</b> Only one of the formats will be used|
+|Background Color, <br/> Text Color| Two possible key structures for a JSONObject. <br/> &emsp;&emsp;1. HEX_COLOR <br/> &emsp;&emsp;2. THEME_COLOR and TINT(tint is optional) <br/>&emsp;&emsp; <b>Note :</b> Only one of the formats will be used|
   </TabItem>
 </Tabs>

@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,9 +13,8 @@ import TabItem from '@theme/TabItem';
 
 <h2>Cell Style Definition</h2>
 
-- Previously, the Number Format Response (Pattern Response) was sent in CELL_META -> META -> COLUMN_DATA -> Array of CELL_DATA at 9th index.
-- It has been now moved to the 15th index in Cell Style Definition.
-- To reduce sending the same pattern response for each cell, we switched this to cellStyleDefinition.
+- In earlier versions, the Number Format Response (Pattern Response) was located at the 9th index of each CELL_DATA array under CELL_META -> META -> COLUMN_DATA. It has now been moved to the 15th index in the Cell Style Definition.
+- To avoid sending the same pattern response for each cell, it has been moved to the cellStyleDefinition.
 <div style={{ display: 'flex', gap: '20px'}}>
   <div style={{ flex: 1}}>
     <center><b>Version 1</b></center>
@@ -100,17 +103,15 @@ import TabItem from '@theme/TabItem';
 
 <h2>Usage Restriction</h2>
 <h4>Characters In SpreadSheet :</h4>
-- We have newly added usage restriction response in Document Meta.
-- No of characters in spreadsheet(cins) will be sent in postDoc response.
-- We have to show the error message banner, if the spreadsheet exceeds the characters limit.
+- We have introduced a usage restriction response in the Document Meta.
 - Check [here](../docs/Structure/Document%20Meta/Usage%20Restriction.mdx) for usage restriction structure.
 <br/>
 
 
 <h2>Tables</h2>
 
-- Additionally, We have added IS_FILTER_TABLE key to differentiate the table's response from normal table and sheetFilter table's response.
-- If the table response is for sheetFilter table, COLUMN_HEADERS, PROPERTIES, STYLE infos will not be available in the response.
+- Additionally, we have added the IS_FILTER_TABLE key to differentiate between a normal table response and a sheet filter table response.
+- If the table response is for a sheet filter table, the COLUMN_HEADERS, PROPERTIES, and STYLE information will not be included in the response.
 <div style={{ display: 'flex', gap: '20px'}}>
   <div style={{ flex: 1}}>
     <center><b>Version 1</b></center>
@@ -198,17 +199,17 @@ import TabItem from '@theme/TabItem';
 
 <h2>Spreadsheet Settings</h2>
 
-- Spreadsheet Settings response key <b>DOC_SETTINGS</b> changed as <b>SPREADSHEET_SETTINGS_NEW</b>.
+- In the Spreadsheet Settings response, the key <b>DOC_SETTINGS</b> has been changed to <b>SPREADSHEET_SETTINGS_NEW</b>.
 - Check [here](../docs/Structure/Document%20Meta/Spreadsheet%20Settings.md) for the new structure.
 <br/>
 
 <h2>User Notification</h2>
-- We have newly added <b>PatternFill</b> notification response in User Notification array.
+- We have newly added <b>PatternFill</b> notification response to the User Notification array.
 - Check [here](../docs/Structure/Document%20Meta/User%20Notification.mdx) for the patternFill notification structure.
 <br/>
 
 <h2>Sheet Operations</h2>
-- Previously, if sheet tab color is <b>"transparent"</b>, we will sent it as <b>""</b>(Empty string). It has been now sent as <b>"transparent"</b> instead of empty string.
+- Previously, if the sheet tab color was 'transparent', it was sent as an empty string (""). Now, it is sent explicitly as 'transparent' instead of an empty string.
 <div style={{ display: 'flex', gap: '20px'}}>
   <div style={{ flex: 1}}>
     <center><b>Version 1</b></center>
@@ -260,13 +261,13 @@ import TabItem from '@theme/TabItem';
 <TabItem value="sheetMeta" label="Sheet Meta">
 
 <h2>Cell Meta</h2>
-- Previously, the number format response (Pattern Response) was sent in CELL_DATA at 9th index. It has been now moved to CELL_STYLE_DEFINITION response.
+- Previously, the Number Format Response (Pattern Response) was sent at the 9th index within CELL_DATA. It has now been moved to the CELL_STYLE_DEFINITION response.
 - As a result, all subsequent indexes in the CELL_DATA response have been shifted forward by one position.
-- The displayValue will no longer be sent for Picklist, Boolean, and Error values because their actual value and displayValue are always identical.
+- The displayValue will no longer be sent for Picklist, Boolean, and Error values since their actual value and displayValue are always identical.
 - For Float, Percentage, Currency, Fraction, and Scientific Formats the formulaString will be sent only if the decimalSeparator is not a dot (.). This is because, when the decimalSeparator is a dot, the actual value and formulaString are identical.
-- For Date and DateTime Formats, the formulaString will only be sent if the DateFormat is not MDY. This is because the actual value is already in the MDY format.
-- For String type, the formulaString will only be sent if the value is prefixed with an apostrophe ('). This is because only in such cases will the actual value and formulaString differ.
-- 17th index picklist response should be used instead of 11th index picklist response.
+- For Date and DateTime formats, the formulaString will be sent only if the DateFormat is not MDY. This is because the actual value is already in the MDY format.
+- For String types, the formulaString will be sent only if the value is prefixed with an apostrophe ('). This is because only in such cases do the actual value and formulaString differ.
+- The picklist response at the 17th index should be used instead of the one at the 11th index.
 
 <div style={{ display: 'flex', gap: '20px'}}>
   <div style={{ flex: 1}}>
@@ -438,11 +439,11 @@ import TabItem from '@theme/TabItem';
 <br/>
 
 <h2>Filters</h2>
-- Filter response key <b>FILTER_DETAILS</b> changed as <b>NEW_FILTER_DETAILS</b>.
-- Previously, filteredRows response sent in Filter response. It has been now moved to Sheet Meta.
-- Additionally, we have added ID, FILTER_VIEW_ID, DISPLAY_FILTER_BUTTONS keys to the filter response.
-- In FilterData response, Instead of using the string based keys we have used the CommandConstant keys. Check [here](../docs/Structure/Sheet%20Meta/Filters.mdx) for the new filterData keys and structure. 
-- Additionally, we have sent Picklist details in FilterData response to support picklist filter.
+- The filter response key <b>FILTER_DETAILS</b> has been changed to <b>NEW_FILTER_DETAILS</b>.
+- Previously, the filteredRows response was sent within the Filter response. It has now been moved to the Sheet Meta.
+- Additionally, we have added the ID, FILTER_VIEW_ID, and DISPLAY_FILTER_BUTTONS keys to the filter response.
+- In the FilterData response, we have replaced the string-based keys with CommandConstant keys. Check [here](../docs/Structure/Sheet%20Meta/Filters.mdx) for the new filterData keys and structure. 
+- Additionally, we have included Picklist details in the FilterData response to support the picklist filter.
 <div style={{ display: 'flex', gap: '20px'}}>
   <div style={{ flex: 1}}>
     <center><b>Version 1</b></center>
@@ -522,7 +523,7 @@ import TabItem from '@theme/TabItem';
 <br/>
 
 <h2>Row Headers</h2>
-- Additionally, we have sent maximum height colIndex along with rowIndex, rowsRepeated, rowStyleName as a 4th value in RowHeadersArray.
+- Additionally, we have added the maximum height colIndex as the fourth value in the RowHeadersArray, along with rowIndex, rowsRepeated, and rowStyleName.
 <div style={{ display: 'flex', gap: '20px'}}>
   <div style={{ flex: 1}}>
     <center><b>Version 1</b></center>
@@ -569,7 +570,7 @@ import TabItem from '@theme/TabItem';
 <br/>
 
 <h2>Column Headers</h2>
-- Additionally, we have sent maximum width rowIndex along with colIndex, colsRepeated, colStyleName as a 4th value in colHeadersArray.
+- Additionally, we have included the maximum width rowIndex as the fourth value in the colHeadersArray, along with colIndex, colsRepeated, and colStyleName."
 <div style={{ display: 'flex', gap: '20px'}}>
   <div style={{ flex: 1}}>
     <center><b>Version 1</b></center>
@@ -616,7 +617,7 @@ import TabItem from '@theme/TabItem';
 <br/>
 
 <h2> Timeline</h2>
-- We have newly added timeline response in Sheet Meta.
+- We have newly added the timeline response to the Sheet Meta.
 - Check [here](../docs/Structure/Sheet%20Meta/Timeline.md) for the timeline structure.
 </TabItem>
 

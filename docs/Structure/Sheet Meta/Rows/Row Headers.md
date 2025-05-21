@@ -9,8 +9,6 @@ import TabItem from '@theme/TabItem';
 # Row Headers
 
 
-Additionally, Maximum Height ColIndex along with rowIndex, rowsRepeated, rowStyleName as a 4th value sent in RowHeadersArray.
-
 <h3>Structure</h3>
 ```json
 {

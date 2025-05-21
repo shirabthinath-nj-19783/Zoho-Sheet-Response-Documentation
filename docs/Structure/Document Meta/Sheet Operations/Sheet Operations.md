@@ -1,5 +1,6 @@
 ---
 sidebar_position: 6
+description: ""
 ---
 
 import BrowserOnly from '@docusaurus/BrowserOnly';
@@ -9,7 +10,7 @@ import TabItem from '@theme/TabItem';
 # Sheet Operations
 
 :::note
-Operation type will be changed based on the operation. Possible operationTypes are : META, INSERT, DELETE, RENAME, MOVE, TABCOLOR, HIDDEN_SHEETS, UNHIDDEN_SHEETS, IMPORT_AS_NEWSHEET, FIELDS_SHEET_INSERT, INSERT_SHEETS.
+The operation type will change based on the operation being performed. Possible operation types are: META, INSERT, DELETE, RENAME, MOVE, TABCOLOR, HIDDEN_SHEETS, UNHIDDEN_SHEETS, IMPORT_AS_NEWSHEET, FIELDS_SHEET_INSERT and INSERT_SHEETS.
 :::
 
 <Tabs>

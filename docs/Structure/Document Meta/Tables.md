@@ -1,5 +1,6 @@
 ---
 sidebar_position: 13
+description: ""
 ---
 
 import BrowserOnly from '@docusaurus/BrowserOnly';
@@ -9,7 +10,7 @@ import TabItem from '@theme/TabItem';
 # Tables
 
 :::note
-Operation type will be changed based on the operation. Possible operationTypes are : META, ADD, MODIFY, REMOVE, DELETE, COLUMN_HEADERS, TABLE_EXPANSION, CELL_STYLES, REMOVE_STYLE, DEFAULT.
+The operation type will change based on the operation being performed. Possible operation types are: META, ADD, MODIFY, REMOVE, DELETE, COLUMN_HEADERS, TABLE_EXPANSION, CELL_STYLES, REMOVE_STYLE and DEFAULT.
 :::
 
 <Tabs>
@@ -75,12 +76,12 @@ Operation type will be changed based on the operation. Possible operationTypes a
     }}
 </BrowserOnly>
 <br/>
-- <b>Ranges array:</b> In the order of asn, startRow, startCol, endRow, endCol.  
-- <b>Properties array:</b> In the order of isHeaderRowShown, isFooterRowShown, isShowFirstColumn, isShowLastColumn, isShowRowStrips, isShowColumnStrips.  
-- <b>IS_FILTER_TABLE</b> denotes whether this table is the sheetFilter's table.
+- Ranges array format: [asn, startRow, startCol, endRow, endCol] — in this specific order.
+- Properties array format: [isHeaderRowShown, isFooterRowShown, isShowFirstColumn, isShowLastColumn, isShowRowStrips, isShowColumnStrips] — in this specific order.
+- IS_FILTER_TABLE indicates whether the table is the sheet filter's table.
 
 :::note
-If the table response is for the sheetFilter's table, then COLUMN_HEADERS, PROPERTIES, and STYLE will not be available.
+If the table response corresponds to the sheet filter's table, the COLUMN_HEADERS, PROPERTIES, and STYLE fields will not be included.
 :::
 </TabItem>
 
@@ -347,13 +348,13 @@ If the table response is for the sheetFilter's table, then COLUMN_HEADERS, PROPE
     }}
 </BrowserOnly>
 <br/>
-- firstColumn, wholeTable are tableStyle key names. Possible tableStyle keys are : wholeTable, headerRow, firstHeaderCell, lastHeaderCell, totalRow, firstTotalCell, lastTotalCell, firstColumnStripe, secondColumnStripe, firstRowStripe, secondRowStripe, firstColumn, lastColumn.  
+- firstColumn and wholeTable are valid tableStyle key names. The possible tableStyle keys are: wholeTable, headerRow, firstHeaderCell, lastHeaderCell, totalRow, firstTotalCell, lastTotalCell, firstColumnStripe, secondColumnStripe, firstRowStripe, secondRowStripe, firstColumn, and lastColumn.  
 <br/>
 <h2>Color Object Description :</h2>
 
 |Object | Description |
 |------|-------------|
-|Background Color, <br/> Text Color| 2 possible JSONObject's key structures, <br/> &emsp;&emsp;1. HEX_COLOR <br/> &emsp;&emsp;2. THEME_COLOR and TINT(tint is optional) <br/>&emsp;&emsp; <b>Note :</b> Only one of the formats will be used|
+|Background Color, <br/> Text Color| Two possible key structures for a JSONObject. <br/> &emsp;&emsp;1. HEX_COLOR <br/> &emsp;&emsp;2. THEME_COLOR and TINT(tint is optional) <br/>&emsp;&emsp; <b>Note :</b> Only one of the formats will be used|
 </TabItem>
 
 <TabItem value="removeStyle" label="Remove Style">

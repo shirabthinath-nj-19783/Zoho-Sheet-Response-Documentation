@@ -35,6 +35,8 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           editUrl: 'https://github.com/shirabthinath-nj-19783/Zoho-Sheet-Response-Documentation/edit/main/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         blog: {
           showReadingTime: true,
@@ -71,10 +73,6 @@ const config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-    },
-    docs: {
-      showLastUpdateTime: true,
-      showLastUpdateAuthor: true,
     },
   },
 };

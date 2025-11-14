@@ -1,0 +1,311 @@
+---
+sidebar_position: 12
+description: ""
+---
+
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Slicer
+
+:::note
+- The operation type will change based on the operation being performed. Possible operation types are: META, INSERT, MODIFY, MOVE, ADD and DELETE.
+:::
+
+<Tabs>
+
+<TabItem value="meta" label="Meta" default>
+<h3>Structure</h3>
+```json
+{
+   "SLICER" : {
+        __operation_type__ : [
+            {
+                "START_ROW" : __slicer_position__,
+                "START_COL" : __slicer_position__,
+                "SLICER_MULTI_SELECT" : __is_multi_select_enabled__,
+                "SLICER_SORT_ORDER" : __sort_order__,
+                "SLICER_LAYOUT" : __slicer_layout__,
+                "START_ROW_DIFF" : __slicer_position__,
+                "START_COL_DIFF" : __slicer_position__,
+                "SLICER_HEIGHT" : __slicer_height__,
+                "SLICER_WIDTH" : __slicer_width__,
+                "SLICER_BUTTON_HEIGHT" : __slicer_button_height__,
+                "SLICER_COL_LAYOUT" : __slicer_col_layout__,
+                "SLICER_STYLE" : {
+                            __slicer_style_name__: [
+                                __background_color_object__,
+                                __text_color_object__,
+                                __font_size__,
+                                __font_name__,
+                                __border_array__,
+                                __gradient_object__
+                            ]
+                        },
+                "SLICER_THEME_ID" : __slicer_theme_id__,
+                "BOX_SHADOW" : __slicer_box_shadow_object__
+                "SLICER_ELEMENTS" : __slicer_elements_array__
+                "SLICER_ACTIVE" : __slicer_active_elements_index_array__
+                "SLICER_ENABLED" : __slicer_enabled_elements_index_array__
+                "SLICER_ID" : __slicer_id__
+                "SLICER_NAME" : __slicer_name__
+                "SLICER_SOURCE_COL" : __slicer_source_col__
+                "CONNECTED_PIVOTS" : __slicer_connected_pivots_array__
+                "SCROLL_INDEX" : __slicer_scroll_index__
+                "CONNECTION_TYPE" : __slicer_connection_type__
+            }
+        ]
+   }
+}
+```
+<h3>Response</h3>
+<BrowserOnly fallback={<div>Loading JSON...</div>}>
+{() => {
+    const JsonViewer = require('@site/src/components/JsonViewer').default;
+    return <JsonViewer data={{
+            "SLICER": {
+                "INSERT": [
+                    {
+                        "START_ROW": 7,
+                        "START_COL": 6,
+                        "SLICER_MULTI_SELECT": false,
+                        "SLICER_SORT_ORDER": 0,
+                        "SLICER_LAYOUT": 0,
+                        "START_ROW_DIFF": 0,
+                        "START_COL_DIFF": 0,
+                        "SLICER_HEIGHT": 260,
+                        "SLICER_WIDTH": 220,
+                        "SLICER_BUTTON_HEIGHT": 30,
+                        "SLICER_COL_LAYOUT": 1,
+                        "SLICER_STYLE": {
+                            "itemonstyle": [
+                                {
+                                    "340": "ACCENT1",
+                                    "341": "0.67"
+                                },
+                                {
+                                    "339": "z-automatic"
+                                },
+                                "",
+                                "",
+                                [
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.67"
+                                        },
+                                        "354": "1.0000px solid"
+                                    },
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.67"
+                                        },
+                                        "354": "1.0000px solid"
+                                    },
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.67"
+                                        },
+                                        "354": "1.0000px solid"
+                                    },
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.67"
+                                        },
+                                        "354": "1.0000px solid"
+                                    }
+                                ],
+                                {}
+                            ],
+                            "itemoffstyle": [
+                                {
+                                    "340": "ACCENT1",
+                                    "341": "0.8"
+                                },
+                                {
+                                    "339": "z-automatic"
+                                },
+                                "",
+                                "",
+                                [
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.8"
+                                        },
+                                        "354": "1.0000px solid"
+                                    },
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.8"
+                                        },
+                                        "354": "1.0000px solid"
+                                    },
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.8"
+                                        },
+                                        "354": "1.0000px solid"
+                                    },
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.8"
+                                        },
+                                        "354": "1.0000px solid"
+                                    }
+                                ],
+                                {}
+                            ],
+                            "wholetablestyle": [
+                                {},
+                                {},
+                                "",
+                                "",
+                                [
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.8"
+                                        },
+                                        "354": "1.0000px solid"
+                                    },
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.8"
+                                        },
+                                        "354": "1.0000px solid"
+                                    },
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.8"
+                                        },
+                                        "354": "1.0000px solid"
+                                    },
+                                    {
+                                        "342": {
+                                            "340": "ACCENT1",
+                                            "341": "0.8"
+                                        },
+                                        "354": "1.0000px solid"
+                                    }
+                                ],
+                                {
+                                    "bgStart": {
+                                        "340": "ACCENT1",
+                                        "341": "0.9500000000000001"
+                                    },
+                                    "bgStop": {
+                                        "340": "ACCENT1",
+                                        "341": "0.89"
+                                    }
+                                }
+                            ],
+                            "headerstyle": [
+                                {},
+                                {
+                                    "340": "ACCENT1",
+                                    "341": "-0.25"
+                                },
+                                "",
+                                "",
+                                [
+                                    {},
+                                    {},
+                                    {},
+                                    {}
+                                ],
+                                {}
+                            ]
+                        },
+                        "SLICER_THEME_ID": "1tc1",
+                        "BOX_SHADOW": {
+                            "color": {
+                                "340": "ACCENT1"
+                            },
+                            "x": 1,
+                            "y": 3,
+                            "blur": 1,
+                            "opacity": 90,
+                            "inner": false,
+                            "spread": 0
+                        },
+                        "SLICER_ELEMENTS": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "2/3/2023"
+                        ],
+                        "SLICER_ACTIVE": [
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1"
+                        ],
+                        "SLICER_ENABLED": [
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1"
+                        ],
+                        "SLICER_ID": "Slicer1",
+                        "SLICER_NAME": "A",
+                        "SLICER_SOURCE_COL": "A",
+                        "CONNECTED_PIVOTS": [
+                            "0"
+                        ],
+                        "SCROLL_INDEX": 0,
+                        "CONNECTION_TYPE": 1
+                    }
+                ]
+            }
+    }} />
+    }}
+</BrowserOnly>
+
+<br />
+
+</TabItem>
+
+<TabItem value="delete" label="Delete">
+<h3>Structure</h3>
+    ```json
+    {
+        "SLICER": {
+            __operation_type__: [
+                __slicer_id__
+            ]
+        }
+    }
+    ```
+  <h3>Response</h3>
+  <BrowserOnly fallback={<div>Loading JSON...</div>}>
+    {() => {
+        const JsonViewer = require('@site/src/components/JsonViewer').default;
+        return <JsonViewer data={{
+            "SLICER": {
+            "DELETE": [
+                "Slicer1"
+            ]
+        }
+        }} />
+            }}
+    </BrowserOnly>
+</TabItem>
+
+<TabItem value="others" label="Others">
+- SLICER_ID, SLICER_NAME, SLICER_SOURCE_COL, CONNECTED_PIVOTS, SCROLL_INDEX, CONNECTION_TYPE will be sent irrespective of the operation type.
+- Other infos will be send based on the action performed.
+</TabItem>
+</Tabs>

@@ -1,0 +1,61 @@
+---
+sidebar_position: 2
+description: ""
+---
+
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+# Meta
+
+<h3>Structure</h3>
+```json
+{
+   "META" : {
+        "WORKFLOW_LIST" : [{
+            "id" : __value__,
+            "journey_name" : __value__
+        }],
+        "WORKFLOW_META" : {
+            "current_sheet_name" : __value__,
+            "instance_id" : __value__,
+            "journey_name" : __value__
+        },
+        "WORKFLOW_ACTIVITY" : [{
+            "name" : __value__
+        }]
+   }
+}
+```
+<h3>Response</h3>
+<BrowserOnly fallback={<div>Loading JSON...</div>}>
+{() => {
+    const JsonViewer = require('@site/src/components/JsonViewer').default;
+    return <JsonViewer data={{
+            "META" : {
+                "WORKFLOW_LIST": [
+                {
+                    "id": "5nek5018d98ea31504a53be70c6075a013c1c-105999000004222173",
+                    "journey_name": "Review and Approval"
+                },
+                {
+                    "id": "5nek5018d98ea31504a53be70c6075a013c1c-105999000004236012",
+                    "journey_name": "Review_1"
+                }
+            ],
+            "WORKFLOW_META" : {
+                "current_state_name": "Review Requested",
+                "instance_id": "l3m40592892b12a9c4a129acd085869184e70-105999000005045011",
+                "journey_name": "Review and Approval"
+            },
+            "WORKFLOW_ACTIVITY" : [
+                {
+                    "name": "Review and Approval"
+                }
+            ]
+            }
+            
+    }} />
+    }}
+</BrowserOnly>
+
+<br />

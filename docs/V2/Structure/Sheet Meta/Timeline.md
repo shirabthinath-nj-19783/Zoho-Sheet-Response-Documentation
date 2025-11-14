@@ -48,17 +48,17 @@ import TabItem from '@theme/TabItem';
     "PIVOT_TIMELINE": {
         __operation_type__: [
             {
-                "autoHeight": __is_auto_height_enabled__,
-                "srd": __start_row_diff__,
-                "tlid": __timeline_id__,
-                "ssd": __selected_start_date_object__,
-                "sourceCol": __source_col__,
-                "stid": __slicer_theme_id__,
-                "ht": __height__,
-                "wd": __width__,
-                "sc": __start_col__,
-                "sd": __start_date__,
-                "slicerStyle": {
+                "AUTO_HEIGHT": __is_auto_height_enabled__,
+                "START_ROW_DIFF": __start_row_diff__,
+                "SLICER_ID": __timeline_id__,
+                "SELECTED_START_DATE": __selected_start_date_object__,
+                "SLICER_SOURCE_COL": __source_col__,
+                "SLICER_THEME_ID": __slicer_theme_id__,
+                "SLICER_HEIGHT": __height__,
+                "SLICER_WIDTH": __width__,
+                "START_COL": __start_col__,
+                "START_DATE": __start_date__,
+                "SLICER_STYLE": {
                     __slicer_style_name__: [
                         __background_color_object__,
                         __text_color_object__,
@@ -68,16 +68,16 @@ import TabItem from '@theme/TabItem';
                         __gradient_object__
                     ]
                 },
-                "sed": __selected_end_date__,
-                "tlayout": __timeline_layout__,
-                "tlinename": __timeline_name__,
-                "scd": __start_col_diff__,
-                "spt": __selected_period_type__,
-                "scrollDate": __current_scrollview's_start_date__,
-                "connPivots": __connected_pivot_array__,
-                "fc": __filter_criteria_applied__,
-                "sr": __start_row__,
-                "ed": __end_date__
+                "SELECTED_END_DATE": __selected_end_date__,
+                "SLICER_LAYOUT": __timeline_layout__,
+                "SLICER_NAME": __timeline_name__,
+                "START_COL_DIFF": __start_col_diff__,
+                "PERIOD_TYPE": __selected_period_type__,
+                "SCROLL_INDEX": __current_scrollview's_start_date__,
+                "CONNECTED_PIVOTS": __connected_pivot_array__,
+                "FILTER_CRITERIA": __filter_criteria_applied__,
+                "START_ROW": __start_row__,
+                "END_DATE": __end_date__
             }
         ]
     }
@@ -91,25 +91,25 @@ import TabItem from '@theme/TabItem';
         "PIVOT_TIMELINE": {
             "MODIFY": [
                 {
-                    "autoHeight": true,
-                    "srd": 17.8130081300813,
-                    "tlid": "Timeline1",
-                    "ssd": {
+                    "AUTO_HEIGHT": true,
+                    "START_ROW_DIFF": 17.8130081300813,
+                    "SLICER_ID": "Timeline1",
+                    "SELECTED_START_DATE": {
                         "month": 12,
                         "year": 2023,
                         "day": 4
                     },
-                    "sourceCol": "C",
-                    "stid": "1tc8",
-                    "ht": 142,
-                    "wd": 350,
-                    "sc": 7,
-                    "sd": {
+                    "SLICER_SOURCE_COL": "C",
+                    "SLICER_THEME_ID": "1tc8",
+                    "SLICER_HEIGHT": 142,
+                    "SLICER_WIDTH": 350,
+                    "START_COL": 7,
+                    "START_DATE": {
                         "month": 1,
                         "year": 2023,
                         "day": 1
                     },
-                    "slicerStyle": {
+                    "SLICER_STYLE": {
                         "item_off_style": [
                             {
                                 "THEME_COLOR": "TEXT1",
@@ -314,26 +314,26 @@ import TabItem from '@theme/TabItem';
                             {}
                         ]
                     },
-                    "sed": {
+                    "SELECTED_END_DATE": {
                         "month": 12,
                         "year": 2023,
                         "day": 5
                     },
-                    "tlayout": 0,
-                    "tlinename": "C",
-                    "scd": 59.67479674796766,
-                    "spt": "DAYS",
-                    "scrollDate": {
+                    "SLICER_LAYOUT": 0,
+                    "SLICER_NAME": "C",
+                    "START_COL_DIFF": 59.67479674796766,
+                    "PERIOD_TYPE": "DAYS",
+                    "SCROLL_INDEX": {
                         "month": 11,
                         "year": 2023,
                         "day": 25
                     },
-                    "connPivots": [
+                    "CONNECTED_PIVOTS": [
                         "PivotTable1"
                     ],
-                    "fc": "btwn",
-                    "sr": 6,
-                    "ed": {
+                    "FILTER_CRITERIA": "btwn",
+                    "START_ROW": 6,
+                    "END_DATE": {
                         "month": 12,
                         "year": 2023,
                         "day": 31
